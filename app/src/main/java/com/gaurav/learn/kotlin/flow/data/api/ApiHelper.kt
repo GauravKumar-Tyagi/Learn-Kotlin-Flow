@@ -8,6 +8,8 @@ interface ApiHelper {
 
     fun getUsers(): Flow<List<ApiUser>>
 
+    // In case of Coroutine :-> suspend fun getUsers(): List<ApiUser>
+
     fun getMoreUsers(): Flow<List<ApiUser>>
 
     fun getUsersWithError(): Flow<List<ApiUser>>

@@ -5,6 +5,7 @@ import retrofit2.http.GET
 
 interface ApiService {
 
+    // API to get the data from Server
     @GET("users")
     suspend fun getUsers(): List<ApiUser>
 

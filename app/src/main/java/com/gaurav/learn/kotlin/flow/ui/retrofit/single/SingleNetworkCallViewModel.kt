@@ -31,7 +31,7 @@ class SingleNetworkCallViewModel(
     private fun fetchUsers() {
         viewModelScope.launch(dispatcherProvider.main) {
             _uiState.value = UiState.Loading
-
+            // API Call
             apiHelper.getUsers()
                 .flowOn(dispatcherProvider.io)
                 .catch { e ->
