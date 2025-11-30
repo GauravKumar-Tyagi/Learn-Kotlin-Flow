@@ -149,6 +149,7 @@
             android:onClick="startFlowOnActivity"
             android:text="@string/flow_on"
             android:layout_marginBottom="20dp"
+            android:backgroundTint="@color/green"
             android:textColor="@android:color/white" />
 
     </LinearLayout>

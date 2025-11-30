@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.gaurav.learn.kotlin.flow.R
+import com.gaurav.learn.kotlin.flow.ui.flowon.FlowOnActivity
 import com.gaurav.learn.kotlin.flow.ui.retrofit.single.SingleNetworkCallActivity
 import com.gaurav.learn.kotlin.flow.ui.room.RoomDBActivity
 
@@ -80,7 +81,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun startFlowOnActivity(view: View) {
-        //startActivity(Intent(this@MainActivity, FlowOnActivity::class.java))
+        startActivity(Intent(this@MainActivity, FlowOnActivity::class.java))
     }
 
 }

@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.gaurav.learn.kotlin.flow.data.api.ApiHelper
 import com.gaurav.learn.kotlin.flow.data.local.DatabaseHelper
+import com.gaurav.learn.kotlin.flow.ui.flowon.FlowOnViewModel
 import com.gaurav.learn.kotlin.flow.ui.retrofit.single.SingleNetworkCallViewModel
 import com.gaurav.learn.kotlin.flow.ui.room.RoomDBViewModel
 import com.gaurav.learn.kotlin.flow.utils.DispatcherProvider
@@ -22,6 +23,8 @@ class ViewModelFactory(
             return SingleNetworkCallViewModel(apiHelper, dbHelper, dispatcherProvider) as T
         } else if (modelClass.isAssignableFrom(RoomDBViewModel::class.java)) {
             return RoomDBViewModel(apiHelper, dbHelper, dispatcherProvider) as T
+        } else if (modelClass.isAssignableFrom(FlowOnViewModel::class.java)) {
+            return FlowOnViewModel(apiHelper, dbHelper, dispatcherProvider) as T
         }
         /*else if (modelClass.isAssignableFrom(SeriesNetworkCallsViewModel::class.java)) {
             return SeriesNetworkCallsViewModel(apiHelper, dbHelper) as T
