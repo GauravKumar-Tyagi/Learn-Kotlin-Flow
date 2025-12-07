@@ -38,6 +38,16 @@
             android:name=".ui.flowon.FlowOnActivity"
             android:label="@string/flow_on" />
 
+        <activity
+            android:name=".ui.coldFlow.ColdFlowActivity"
+            android:label="@string/understand_clod_flow" />
+
+        <activity android:name=".ui.hotFlow.stateFlow.StateFlowActivity"
+            android:label="@string/understand_hot_flow_stateflow" />
+
+        <activity android:name=".ui.hotFlow.sharedFlow.SharedFlowActivity"
+            android:label="@string/understand_hot_flow_shared_flow" />
+
 
     </application>
 

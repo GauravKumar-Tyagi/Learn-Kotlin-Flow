@@ -152,5 +152,33 @@
             android:backgroundTint="@color/green"
             android:textColor="@android:color/white" />
 
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="startColdFlowActivity"
+            android:text="@string/understand_clod_flow"
+            android:layout_marginBottom="20dp"
+            android:backgroundTint="@color/green"
+            android:textColor="@android:color/white" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="startStateFlowActivity"
+            android:text="@string/understand_hot_flow_stateflow"
+            android:layout_marginBottom="20dp"
+            android:backgroundTint="@color/green"
+            android:textColor="@android:color/white" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="startSharedFlowActivity"
+            android:text="@string/understand_hot_flow_shared_flow"
+            android:layout_marginBottom="20dp"
+            android:backgroundTint="@color/green"
+            android:textColor="@android:color/white" />
+
+
     </LinearLayout>
 </ScrollView>

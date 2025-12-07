@@ -20,4 +20,7 @@
     <string name="flow_on">FlowOn</string>
     <string name="result">Result</string>
     <string name="check_logcat">Check Logcat</string>
+    <string name="understand_clod_flow">Understand Clod Flow</string>
+    <string name="understand_hot_flow_stateflow">Understand Hot Flow - StateFlow</string>
+    <string name="understand_hot_flow_shared_flow">Understand Hot Flow - SharedFlow</string>
 </resources>

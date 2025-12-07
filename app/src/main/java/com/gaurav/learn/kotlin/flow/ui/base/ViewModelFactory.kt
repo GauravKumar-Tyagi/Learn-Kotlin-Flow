@@ -4,7 +4,10 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.gaurav.learn.kotlin.flow.data.api.ApiHelper
 import com.gaurav.learn.kotlin.flow.data.local.DatabaseHelper
+import com.gaurav.learn.kotlin.flow.ui.coldFlow.ColdFlowViewModel
 import com.gaurav.learn.kotlin.flow.ui.flowon.FlowOnViewModel
+import com.gaurav.learn.kotlin.flow.ui.hotFlow.sharedFlow.SharedFlowViewModel
+import com.gaurav.learn.kotlin.flow.ui.hotFlow.stateFlow.StateFlowViewModel
 import com.gaurav.learn.kotlin.flow.ui.retrofit.single.SingleNetworkCallViewModel
 import com.gaurav.learn.kotlin.flow.ui.room.RoomDBViewModel
 import com.gaurav.learn.kotlin.flow.utils.DispatcherProvider
@@ -25,6 +28,12 @@ class ViewModelFactory(
             return RoomDBViewModel(apiHelper, dbHelper, dispatcherProvider) as T
         } else if (modelClass.isAssignableFrom(FlowOnViewModel::class.java)) {
             return FlowOnViewModel(apiHelper, dbHelper, dispatcherProvider) as T
+        } else if (modelClass.isAssignableFrom(ColdFlowViewModel::class.java)) {
+            return ColdFlowViewModel(apiHelper, dbHelper, dispatcherProvider) as T
+        } else if (modelClass.isAssignableFrom(StateFlowViewModel::class.java)) {
+            return StateFlowViewModel(apiHelper, dbHelper, dispatcherProvider) as T
+        } else if( modelClass.isAssignableFrom(SharedFlowViewModel::class.java)) {
+            return SharedFlowViewModel(apiHelper, dbHelper, dispatcherProvider) as T
         }
         /*else if (modelClass.isAssignableFrom(SeriesNetworkCallsViewModel::class.java)) {
             return SeriesNetworkCallsViewModel(apiHelper, dbHelper) as T
