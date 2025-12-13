@@ -48,6 +48,10 @@
         <activity android:name=".ui.hotFlow.sharedFlow.SharedFlowActivity"
             android:label="@string/understand_hot_flow_shared_flow" />
 
+        <activity
+            android:name=".ui.operators.OperatorsActivity"
+            android:label="@string/operators" />
+
 
     </application>
 

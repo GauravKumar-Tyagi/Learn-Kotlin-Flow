@@ -9,6 +9,7 @@ import com.gaurav.learn.kotlin.flow.ui.coldFlow.ColdFlowActivity
 import com.gaurav.learn.kotlin.flow.ui.flowon.FlowOnActivity
 import com.gaurav.learn.kotlin.flow.ui.hotFlow.sharedFlow.SharedFlowActivity
 import com.gaurav.learn.kotlin.flow.ui.hotFlow.stateFlow.StateFlowActivity
+import com.gaurav.learn.kotlin.flow.ui.operators.OperatorsActivity
 import com.gaurav.learn.kotlin.flow.ui.retrofit.single.SingleNetworkCallActivity
 import com.gaurav.learn.kotlin.flow.ui.room.RoomDBActivity
 
@@ -17,6 +18,10 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+    }
+
+    fun startOperatorsActivity(view: View) {
+        startActivity(Intent(this@MainActivity, OperatorsActivity::class.java))
     }
 
     fun startSingleNetworkCallActivity(view: View) {

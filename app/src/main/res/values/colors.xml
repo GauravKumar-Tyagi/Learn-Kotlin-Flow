@@ -10,4 +10,5 @@
     <color name="green">#105610</color>
     <color name="yellow">#FF9800</color>
     <color name="orange">#FF4000</color>
+    <color name="red">#ffff0000</color>
 </resources>

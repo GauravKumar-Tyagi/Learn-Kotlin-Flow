@@ -8,6 +8,7 @@ import com.gaurav.learn.kotlin.flow.ui.coldFlow.ColdFlowViewModel
 import com.gaurav.learn.kotlin.flow.ui.flowon.FlowOnViewModel
 import com.gaurav.learn.kotlin.flow.ui.hotFlow.sharedFlow.SharedFlowViewModel
 import com.gaurav.learn.kotlin.flow.ui.hotFlow.stateFlow.StateFlowViewModel
+import com.gaurav.learn.kotlin.flow.ui.operators.OperatorsViewModel
 import com.gaurav.learn.kotlin.flow.ui.retrofit.single.SingleNetworkCallViewModel
 import com.gaurav.learn.kotlin.flow.ui.room.RoomDBViewModel
 import com.gaurav.learn.kotlin.flow.utils.DispatcherProvider
@@ -34,6 +35,8 @@ class ViewModelFactory(
             return StateFlowViewModel(apiHelper, dbHelper, dispatcherProvider) as T
         } else if( modelClass.isAssignableFrom(SharedFlowViewModel::class.java)) {
             return SharedFlowViewModel(apiHelper, dbHelper, dispatcherProvider) as T
+        } else if (modelClass.isAssignableFrom(OperatorsViewModel::class.java)) {
+            return OperatorsViewModel(apiHelper, dbHelper, dispatcherProvider) as T
         }
         /*else if (modelClass.isAssignableFrom(SeriesNetworkCallsViewModel::class.java)) {
             return SeriesNetworkCallsViewModel(apiHelper, dbHelper) as T

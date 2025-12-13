@@ -11,183 +11,161 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
         android:layout_marginTop="16dp"
+        android:orientation="vertical"
         android:paddingBottom="24dp">
 
-        <Button
-            android:backgroundTint="@color/orange"
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:onClick="startOperatorsActivity"
-            android:text="@string/operators"
+            android:gravity="center"
+            android:text="@string/transform"
+            android:layout_margin="12dp"
+            android:textStyle="bold"
+            android:textColor="@color/red"
+            />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
+            android:onClick="useOfFilterOperator"
+            android:text="@string/filter_operator"
             android:textColor="@android:color/white" />
 
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:onClick="startSingleNetworkCallActivity"
-            android:text="@string/single_network_call"
             android:layout_marginBottom="16dp"
+            android:onClick="useOfFilterIsInstanceOperator"
+            android:text="@string/filterisinstance_operator"
+            android:textColor="@android:color/white" />
+
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:onClick="useOfMapOperator"
+            android:text="@string/map_operator"
             android:textColor="@android:color/white" />
 
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:onClick="startSeriesNetworkCallsActivity"
-            android:text="@string/series_network_calls"
             android:layout_marginBottom="16dp"
+            android:onClick="useOfWithIndexOperator"
+            android:text="@string/withindex_operator"
             android:textColor="@android:color/white" />
 
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:onClick="startParallelNetworkCallsActivity"
-            android:text="@string/parallel_network_calls"
             android:layout_marginBottom="16dp"
+            android:onClick="useOfOnEachOperator"
+            android:text="@string/oneach_operator"
             android:textColor="@android:color/white" />
 
-        <Button
+
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:onClick="startRoomDatabaseActivity"
-            android:text="@string/room_database"
+            android:gravity="center"
+            android:text="@string/zip"
+            android:layout_marginTop="4dp"
             android:layout_marginBottom="16dp"
-            android:textColor="@android:color/white" />
+            android:textStyle="bold"
+            android:textColor="@color/red"
+            />
 
         <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="startCatchActivity"
-            android:text="@string/catch_error"
-            android:layout_marginBottom="16dp"
-            android:textColor="@android:color/white" />
-
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="startEmitAllActivity"
-            android:text="@string/emit_all_error"
-            android:layout_marginBottom="16dp"
-            android:textColor="@android:color/white" />
-
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="startCompletionActivity"
-            android:text="@string/completion"
-            android:layout_marginBottom="16dp"
-            android:textColor="@android:color/white" />
-
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="startLongRunningTaskActivity"
-            android:text="@string/long_running_task"
-            android:layout_marginBottom="16dp"
-            android:textColor="@android:color/white" />
-
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="startTwoLongRunningTasksActivity"
-            android:text="@string/two_long_running_tasks"
-            android:layout_marginBottom="16dp"
-            android:textColor="@android:color/white" />
-
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="startFilterActivity"
-            android:text="@string/filter"
-            android:layout_marginBottom="16dp"
-            android:textColor="@android:color/white" />
-
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="startMapActivity"
-            android:text="@string/map"
-            android:layout_marginBottom="16dp"
-            android:textColor="@android:color/white" />
-
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="startReduceActivity"
-            android:text="@string/reduce"
-            android:layout_marginBottom="16dp"
-            android:textColor="@android:color/white" />
-
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="startSearchActivity"
-            android:text="@string/search"
-            android:layout_marginBottom="16dp"
-            android:textColor="@android:color/white" />
-
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="startRetryActivity"
-            android:text="@string/retry"
-            android:layout_marginBottom="16dp"
-            android:textColor="@android:color/white" />
-
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="startRetryWhenActivity"
-            android:text="@string/retry_when"
-            android:layout_marginBottom="16dp"
-            android:textColor="@android:color/white" />
-
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="startRetryExponentialBackoffActivity"
-            android:text="@string/retry_exponential_backoff"
-            android:layout_marginBottom="16dp"
-            android:textColor="@android:color/white" />
-
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="startFlowOnActivity"
-            android:text="@string/flow_on"
-            android:layout_marginBottom="20dp"
             android:backgroundTint="@color/green"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:onClick="useOfZipOperator"
+            android:text="@string/zip_operator"
+            android:textColor="@android:color/white" />
+
+        <Button
+            android:backgroundTint="@color/green"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:onClick="useOfZipOperatorToSimulateParallelNetworkCalls"
+            android:text="@string/zip_for_parallel_network_calls"
+            android:textColor="@android:color/white" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/merge"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="16dp"
+            android:textStyle="bold"
+            android:textColor="@color/red"/>
+
+        <Button
+            android:backgroundTint="@color/green"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:onClick="useOfMergeOperator"
+            android:text="@string/merge_operator"
             android:textColor="@android:color/white" />
 
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:onClick="startColdFlowActivity"
-            android:text="@string/understand_clod_flow"
-            android:layout_marginBottom="20dp"
-            android:backgroundTint="@color/green"
+            android:layout_marginBottom="16dp"
+            android:onClick="useOfFlatMapConcatOperator"
+            android:text="@string/flatmapconcat_operator"
             android:textColor="@android:color/white" />
 
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:onClick="startStateFlowActivity"
-            android:text="@string/understand_hot_flow_stateflow"
-            android:layout_marginBottom="20dp"
-            android:backgroundTint="@color/green"
+            android:layout_marginBottom="16dp"
+            android:onClick="useOfFlattenConcatOperator"
+            android:text="@string/flattenconcat_operator"
             android:textColor="@android:color/white" />
 
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:onClick="startSharedFlowActivity"
-            android:text="@string/understand_hot_flow_shared_flow"
-            android:layout_marginBottom="20dp"
-            android:backgroundTint="@color/green"
+            android:layout_marginBottom="16dp"
+            android:onClick="useOfFlattenConcatVsFlatMapConcat"
+            android:text="@string/flattenconcat_vs_flatmapconcat"
             android:textColor="@android:color/white" />
 
+        <Button
+            android:backgroundTint="@color/green"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:onClick="useOfFlatMapMergeOperator"
+            android:text="@string/flatmapmerge_operator"
+            android:textColor="@android:color/white" />
+
+        <Button
+            android:backgroundTint="@color/green"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:onClick="useOfFlatMapLatestOperator"
+            android:text="@string/flatmaplatest_operator"
+            android:textColor="@android:color/white" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/emitters"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="16dp"
+            android:textStyle="bold"
+            android:textColor="@color/red"/>
 
     </LinearLayout>
 </ScrollView>

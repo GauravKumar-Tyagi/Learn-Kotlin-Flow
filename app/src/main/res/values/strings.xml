@@ -23,4 +23,22 @@
     <string name="understand_clod_flow">Understand Clod Flow</string>
     <string name="understand_hot_flow_stateflow">Understand Hot Flow - StateFlow</string>
     <string name="understand_hot_flow_shared_flow">Understand Hot Flow - SharedFlow</string>
+    <string name="operators">Operators</string>
+    <string name="map_operator">Map Operator</string>
+    <string name="filter_operator">Filter Operator</string>
+    <string name="zip_operator">Zip Operator -> Concurrent</string>
+    <string name="flattenconcat_operator">FlattenConcat Operator</string>
+    <string name="flatmapconcat_operator">FlatMapConcat Operator</string>
+    <string name="transform">TRANSFORM</string>
+    <string name="filterisinstance_operator">FilterIsInstance Operator</string>
+    <string name="withindex_operator">WithIndex Operator</string>
+    <string name="zip">ZIP</string>
+    <string name="oneach_operator">OnEach Operator</string>
+    <string name="merge">MERGE</string>
+    <string name="merge_operator">Merge Operator -> Concurrent</string>
+    <string name="flattenconcat_vs_flatmapconcat">FlattenConcat Vs FlatMapConcat</string>
+    <string name="flatmapmerge_operator">FlatMapMerge Operator -> Concurrent</string>
+    <string name="flatmaplatest_operator">FlatMapLatest Operator -> Concurrent</string>
+    <string name="emitters">Emitters</string>
+    <string name="zip_for_parallel_network_calls">Zip For Parallel Network Calls -> Concurrent</string>
 </resources>
