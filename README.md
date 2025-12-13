@@ -18,6 +18,7 @@
 
     ### NOTES:
     The filter operator is used to emit only those values from the original flow that match a given predicate.
+
     Explanation:  
     - It takes a predicate function as a parameter.
     - Only values for which the predicate returns true are emitted downstream.
@@ -54,6 +55,7 @@
 
     ### NOTES:
     The filterIsInstance operator is used to emit only values that are instances of a specified type.  
+
     Explanation:  
     - Filters the flow to include only elements of a given type.
     - Useful for working with flows containing mixed types.
@@ -96,6 +98,7 @@
 
     ### NOTES:
     The map operator is used to transform each value emitted by the original flow using a specified transformation function.
+
     Explanation:
     - It takes a transformation function as a parameter.
     - Each value from the original flow is transformed using this function before being emitted downstream.
@@ -134,6 +137,7 @@
 
     ### NOTES:
     The withIndex operator is used to wrap each element of the flow into an IndexedValue, which contains both the value and its index.
+
     Explanation:
     - It pairs each emitted value with its corresponding index.
     - Useful for scenarios where the position of elements matters.
@@ -171,6 +175,7 @@
 
     ### NOTES:
     The onEach operator is used to perform side effects for each value emitted by the original flow without modifying the values themselves.
+
     Explanation:
     - It takes an action function as a parameter.
     - The action is invoked for each emitted value.
@@ -229,6 +234,7 @@
     Zip will wait for both flows to emit value and then combine those values using the provided transform function.
     zip is used to execute the task in parallel and combine the results. 
     For example, execute multiple network calls in parallel.
+
     Explanation:
     - It takes another flow and a transformation function as parameters.
     - Pairs values from both flows using the provided transformation function.
@@ -298,6 +304,7 @@
 
     ### NOTES:
     The merge operator is used to combine multiple flows into a single flow without preserving the order of elements.
+
     Explanation:
     - Merges multiple flows concurrently.
     - Merge will execute 2 parallel concurrent flows (one for outer and one for inner flow) and emit values as soon as they are emitted from any of the flow.
@@ -347,6 +354,7 @@
 
     ### NOTES:
     The flatMapConcat operator is like lining up tasks in a queue — each task starts only after the previous one completes.
+
     Explanation:
     - Runs inner flows sequentially (one after another).
     - This means each inner flow is collected one after another, preserving the order of emissions.
@@ -401,6 +409,7 @@
     ### NOTES:
     The flattenConcat operator is used to flatten a flow of flows into a single flow by concatenating the inner flows sequentially.
     In case of 2 flows, first inner flow will be collected completely and after that only second inner flow will be collected.
+
     Explanation:
     - Emits values from each inner flow one after another, preserving the order of emissions.
     - Useful for scenarios where you have a flow that emits other flows and you want to process them in sequence.
@@ -450,6 +459,7 @@
     and emit values as soon as they are emitted from any of the inner flow.
     FlatMapMerge introduces asynchronous operation, where each flow is started into a new coroutine scope so they can process parallel running tasks.
     This allows multiple inner flows to run in parallel, emitting their values as soon as they are available.
+
     Explanation:
     - It works same as parallel nested loop.
     - Runs inner flows concurrently (parallel execution).
@@ -506,6 +516,7 @@
     but it only collects values from the most recently emitted inner flow.
     FlatMapLatest will cancel the previous inner flow and start new inner flow for each outer flow emit value.
     It forgets about the previous flow once a new one appears. With every new value, the previous flow processing is forgotten.
+
     Explanation:
     - Cancels the previous inner flow when a new value is emitted from the outer flow.
     - Only the latest inner flow's values are emitted downstream.
