@@ -294,7 +294,7 @@
 
     -------------------------------------------------------------------------------------------------------
 
-    ![merge operator](assets/merge_2.png)
+    ![merge operator](assets/merge_3.png)
 
     ### NOTES:
     The merge operator is used to combine multiple flows into a single flow without preserving the order of elements.
