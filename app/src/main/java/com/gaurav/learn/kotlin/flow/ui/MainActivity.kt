@@ -6,6 +6,7 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.gaurav.learn.kotlin.flow.R
 import com.gaurav.learn.kotlin.flow.ui.coldFlow.ColdFlowActivity
+import com.gaurav.learn.kotlin.flow.ui.flowInternals.FlowInternalsActivity
 import com.gaurav.learn.kotlin.flow.ui.flowon.FlowOnActivity
 import com.gaurav.learn.kotlin.flow.ui.hotFlow.sharedFlow.SharedFlowActivity
 import com.gaurav.learn.kotlin.flow.ui.hotFlow.stateFlow.StateFlowActivity
@@ -22,6 +23,10 @@ class MainActivity : AppCompatActivity() {
 
     fun startOperatorsActivity(view: View) {
         startActivity(Intent(this@MainActivity, OperatorsActivity::class.java))
+    }
+
+    fun startFlowInternalActivity(view: View) {
+        startActivity(Intent(this@MainActivity, FlowInternalsActivity::class.java))
     }
 
     fun startSingleNetworkCallActivity(view: View) {

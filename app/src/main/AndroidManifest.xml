@@ -52,6 +52,9 @@
             android:name=".ui.operators.OperatorsActivity"
             android:label="@string/operators" />
 
+        <activity android:name=".ui.flowInternals.FlowInternalsActivity"
+            android:label="@string/flow_internals_create_your_own_flow" />
+
 
     </application>
 

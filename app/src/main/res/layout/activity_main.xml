@@ -25,12 +25,65 @@
             android:textColor="@android:color/white" />
 
         <Button
+            android:backgroundTint="@color/light_orange"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="startFlowInternalActivity"
+            android:text="@string/flow_internals_create_your_own_flow"
+            android:layout_marginBottom="16dp"
+            android:textColor="@android:color/white" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="startFlowOnActivity"
+            android:text="@string/flow_on"
+            android:layout_marginBottom="16dp"
+            android:backgroundTint="@color/light_yellow"
+            android:textColor="@android:color/white" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="startColdFlowActivity"
+            android:text="@string/understand_clod_flow"
+            android:layout_marginBottom="16dp"
+            android:backgroundTint="@color/green"
+            android:textColor="@android:color/white" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="startStateFlowActivity"
+            android:text="@string/understand_hot_flow_stateflow"
+            android:layout_marginBottom="16dp"
+            android:backgroundTint="@color/green"
+            android:textColor="@android:color/white" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="startSharedFlowActivity"
+            android:text="@string/understand_hot_flow_shared_flow"
+            android:layout_marginBottom="16dp"
+            android:backgroundTint="@color/green"
+            android:textColor="@android:color/white" />
+
+        <Button
+            android:backgroundTint="@color/yellow"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="startSingleNetworkCallActivity"
             android:text="@string/single_network_call"
             android:layout_marginBottom="16dp"
             android:textColor="@android:color/white" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="4dp"
+            android:background="@color/black"
+            android:layout_marginBottom="16dp"
+            />
 
         <Button
             android:layout_width="match_parent"
@@ -149,44 +202,9 @@
             android:layout_height="wrap_content"
             android:onClick="startRetryExponentialBackoffActivity"
             android:text="@string/retry_exponential_backoff"
-            android:layout_marginBottom="16dp"
+            android:layout_marginBottom="20dp"
             android:textColor="@android:color/white" />
 
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="startFlowOnActivity"
-            android:text="@string/flow_on"
-            android:layout_marginBottom="20dp"
-            android:backgroundTint="@color/green"
-            android:textColor="@android:color/white" />
-
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="startColdFlowActivity"
-            android:text="@string/understand_clod_flow"
-            android:layout_marginBottom="20dp"
-            android:backgroundTint="@color/green"
-            android:textColor="@android:color/white" />
-
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="startStateFlowActivity"
-            android:text="@string/understand_hot_flow_stateflow"
-            android:layout_marginBottom="20dp"
-            android:backgroundTint="@color/green"
-            android:textColor="@android:color/white" />
-
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="startSharedFlowActivity"
-            android:text="@string/understand_hot_flow_shared_flow"
-            android:layout_marginBottom="20dp"
-            android:backgroundTint="@color/green"
-            android:textColor="@android:color/white" />
 
 
     </LinearLayout>

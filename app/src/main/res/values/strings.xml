@@ -41,4 +41,6 @@
     <string name="flatmaplatest_operator">FlatMapLatest Operator -> Concurrent</string>
     <string name="emitters">Emitters</string>
     <string name="zip_for_parallel_network_calls">Zip For Parallel Network Calls -> Concurrent</string>
+    <string name="flow_internals_create_your_own_flow"><![CDATA[Flow Internals -> Create Your Own Flow]]></string>
+    <string name="please_check_logcat_for_output">Please Check LogCat for Output</string>
 </resources>
