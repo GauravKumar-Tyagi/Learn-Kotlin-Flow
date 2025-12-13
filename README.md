@@ -2,25 +2,27 @@
 
 # Learn Kotlin Flow by real examples for Android
 
-1. Transform Operators
-    Transform operators are used to modify the data emitted by a flow. They take the original flow as input and return a new flow with transformed data. Here are some commonly used transform operators in Kotlin Flow:
+# 1. Transform Operators
+  - Transform operators are used to modify the data emitted by a flow. They take the original flow as input and return a new flow with transformed data. Here are some commonly used transform operators in Kotlin Flow:
     
-    A. filter 
+    ## A. filter
 
     ![filter operator](assets/filter.png)
 
     Source:   --1--2--3--4--5--|
+
     |
     v
+
     Filter(x%2==0): --2-----4--|
 
-    ## NOTES:
+    ### NOTES:
     The filter operator is used to emit only those values from the original flow that match a given predicate.
     Explanation:  
     - It takes a predicate function as a parameter.
     - Only values for which the predicate returns true are emitted downstream.
 
-    ## Official Definition:
+    ### Official Definition:
 
     ```kotlin
     inline fun <T> Flow<T>.filter(crossinline predicate: suspend (T) -> Boolean): Flow<T>
@@ -39,22 +41,24 @@
     }
     ```
 
-    B. filterIsInstance
+    ## B. filterIsInstance
 
     ![filterIsInstance operator](assets/filterIsInstance.png)
 
     Source:   --1--"a"--2.0--3--"b"--|
+
     |
     v
+
     filterIsInstance<Int>(): --1--------3------|
 
-    ## NOTES:
+    ### NOTES:
     The filterIsInstance operator is used to emit only values that are instances of a specified type.  
     Explanation:  
     - Filters the flow to include only elements of a given type.
     - Useful for working with flows containing mixed types.
 
-    ## Official Definition:
+    ### Official Definition:
 
     ```kotlin
     inline fun <R> Flow<*>.filterIsInstance(): Flow<R>
@@ -79,16 +83,18 @@
     }
     ```
 
-    C. map
+    ## C. map
 
     ![map operator](assets/map.png)
 
     Source:   --1--2--3--4--5--|
+
     |
     v
+
     Map(x*x): --1--4--9--16--25--|
 
-    ## NOTES:
+    ### NOTES:
     The map operator is used to transform each value emitted by the original flow using a specified transformation function.
     Explanation:
     - It takes a transformation function as a parameter.
@@ -96,7 +102,7 @@
     - Commonly used for data manipulation and conversion.
     - Supports suspending functions, allowing for asynchronous transformations.
    
-    ## Official Definition:
+    ### Official Definition:
 
     ```kotlin
     inline fun <T, R> Flow<T>.map(crossinline transform: suspend (value: T) -> R): Flow<R>
@@ -115,16 +121,18 @@
     }
     ```
 
-    D. withIndex
+    ## D. withIndex
 
     ![withIndex operator](assets/withIndex.png)
 
     Source:   --"a"--"b"--"c"--|
+
     |
     v
+
     withIndex(): --(0,"a")--(1,"b")--(2,"c")--|
 
-    ## NOTES:
+    ### NOTES:
     The withIndex operator is used to wrap each element of the flow into an IndexedValue, which contains both the value and its index.
     Explanation:
     - It pairs each emitted value with its corresponding index.
@@ -132,7 +140,7 @@
     - The resulting flow emits IndexedValue objects.
     - Helps in tracking the order of elements in the flow.
    
-    ## Official Definition:
+    ### Official Definition:
 
     ```kotlin
     fun <T> Flow<T>.withIndex(): Flow<IndexedValue<T>>
@@ -150,16 +158,18 @@
     }
     ```
    
-    E. onEach
+    ## E. onEach
 
     ![onEach operator](assets/onEach.png)
 
     Source:   --1--2--3--|
+
     |
     v
+
     onEach { println("Value: $it") }: --1--2--3--|
 
-    ## NOTES:
+    ### NOTES:
     The onEach operator is used to perform side effects for each value emitted by the original flow without modifying the values themselves.
     Explanation:
     - It takes an action function as a parameter.
@@ -169,7 +179,7 @@
     - Helps in monitoring the flow's emissions.
     - Useful for debugging and logging purposes.
    
-    ## Official Definition:
+    ### Official Definition:
 
     ```kotlin
     fun <T> Flow<T>.onEach(action: suspend (T) -> Unit): Flow<T>
@@ -193,23 +203,28 @@
     }
     ```
 
-2. Zip Operators 
-    Zip operators are used to combine multiple flows into a single flow by pairing their emitted values 
+# 2. Zip Operators 
+  - Zip operators are used to combine multiple flows into a single flow by pairing their emitted values 
     based on their emission order. Here is a commonly used zip operators in Kotlin Flow:
 
-    A. zip [concurrent]
+    ## A. zip [concurrent]
 
     ![zip operator](assets/zip_1.png)
+
+    -------------------------------------------------------------------------------------------------------
 
     ![zip operator](assets/zip_2.png)
 
     Flow1:   --1-----2-----3--|
+
     Flow2:   ----A-----B-----C--|
+
     |
     v
+
     zip:    --[1,A]--[2,B]--[3,C]--|
 
-    ## NOTES:
+    ### NOTES:
     The zip operator is used to combine two flows by pairing their emitted values based on their emission order.
     Zip will wait for both flows to emit value and then combine those values using the provided transform function.
     zip is used to execute the task in parallel and combine the results. 
@@ -225,12 +240,12 @@
     - If one flow emits more values than the other, the extra values are ignored.
     - The order of emissions is preserved based on the original flows.
 
-    ## Use cases include:  
+    ### Use cases include:  
     - Synchronizing data from two sources (e.g., combining user IDs with user names).
     - Merging results from two parallel network/database calls.
     - Combining sensor data streams in real-time applications.
 
-    ## Official Definition:
+    ### Official Definition:
 
     ```kotlin
     fun <T1, T2, R> Flow<T1>.zip(other: Flow<T2>, transform: suspend (T1, T2) -> R): Flow<R>
@@ -266,34 +281,34 @@
     }
     ```
    
-3. Merge Operator
+# 3. Merge Operator
+  - Here are some commonly used Merge operators in Kotlin Flow: 
 
-    A. merge [concurrent]
+    ## A. merge [concurrent]
 
     ![merge operator](assets/merge_1.png)
 
+    -------------------------------------------------------------------------------------------------------
+
     ![merge operator](assets/merge_2.png)
 
-    Time:   0   5   10   15   20   25   30   35   40   45   50   
-    flow1:  1---|----|----2----3----|----4----|----5----|
-    flow2:  |---A----B----|----|----C----|----D----|----E----F---|
-    |
-    v
-    merge:  1---A----B----2----3----C----4----D----5----E----F---|
+    -------------------------------------------------------------------------------------------------------
 
-    ## NOTES:
+    ![merge operator](assets/merge_2.png)
+
+    ### NOTES:
     The merge operator is used to combine multiple flows into a single flow without preserving the order of elements.
     Explanation:
     - Merges multiple flows concurrently.
     - Merge will execute 2 parallel concurrent flows (one for outer and one for inner flow) and emit values as soon as they are emitted from any of the flow.
     - Does not guarantee the order of emitted values.
     
-    ## Use cases include:
+    ### Use cases include:
     - Combining data from multiple sensors in real-time applications.
     - Merging results from multiple parallel network/database calls that can be processed independently.
     - Handling multiple streams of data in reactive programming scenarios.
 
-    ## Official Definition:
+    ### Official Definition:
 
     ```kotlin
     fun <T> merge(vararg flows: Flow<T>): Flow<T>
@@ -322,20 +337,22 @@
     }
     ```
    
-    B. flatMapConcat
+    ## B. flatMapConcat
 
     ![flatMapConcat operator](assets/flatMapConcat_1.png)
 
+    -------------------------------------------------------------------------------------------------------
+
     ![flatMapConcat operator](assets/flatMapConcat_2.png)
 
-    ## NOTES:
+    ### NOTES:
     The flatMapConcat operator is like lining up tasks in a queue — each task starts only after the previous one completes.
     Explanation:
     - Runs inner flows sequentially (one after another).
     - This means each inner flow is collected one after another, preserving the order of emissions.
     - For example, execute multiple network calls in series.
 
-    ## Use cases include:
+    ### Use cases include:
     - Sequentially processing a series of dependent network calls.
     - Chaining database operations that depend on the results of previous operations.
     - Handling user interactions that require ordered processing of tasks.
@@ -343,7 +360,7 @@
     - When you need to process multiple asynchronous tasks in a sequential manner and collect their results in order.
     - It works same as nested loop.
 
-    ## Official Definition:
+    ### Official Definition:
 
     ```kotlin
     @ExperimentalCoroutinesApi
@@ -372,14 +389,16 @@
     }
     ```
    
-    C. flattenConcat
+    ## C. flattenConcat
 
     Source:   -- Flow1 -- Flow2 -- Flow3 --|
+    
     |
     v
+
     flattenConcat(): -- Flow1 values -- Flow2 values -- Flow3 values --|
 
-    ## NOTES:
+    ### NOTES:
     The flattenConcat operator is used to flatten a flow of flows into a single flow by concatenating the inner flows sequentially.
     In case of 2 flows, first inner flow will be collected completely and after that only second inner flow will be collected.
     Explanation:
@@ -387,11 +406,11 @@
     - Useful for scenarios where you have a flow that emits other flows and you want to process them in sequence.
     - It waits for each inner flow to complete before moving to the next, preserving the order.
 
-    ## Use cases include:
+    ### Use cases include:
     - Sequentially processing a series of dependent network calls.
     - flattenConcat is also used to execute the task in series, for example multiple network call in series.
 
-    ## Official Definition:
+    ### Official Definition:
 
     ```kotlin
     @ExperimentalCoroutinesApi
@@ -417,13 +436,15 @@
     }
     ```
    
-    D. flatMapMerge [concurrent]
+    ## D. flatMapMerge [concurrent]
 
     ![flatMapMerge operator](assets/flatMapMerge_1.png)
 
+    -------------------------------------------------------------------------------------------------------
+
     ![flatMapMerge operator](assets/flatMapMerge_2.png)
 
-    ## NOTES:
+    ### NOTES:
     flatMapMerge will execute inner flows concurrently in parallel
     (for each outer flow emitted value, there will be one separate concurrent inner flow)
     and emit values as soon as they are emitted from any of the inner flow.
@@ -435,10 +456,10 @@
     - Output order is not guaranteed.
     - Useful for parallelizing tasks like network calls. 
 
-    ## Use cases include:
+    ### Use cases include:
     When you need to process multiple asynchronous tasks in parallel and collect their results as soon as they are ready.
 
-    ## Official Definition:
+    ### Official Definition:
 
     ```kotlin
     @ExperimentalCoroutinesApi
@@ -472,13 +493,15 @@
     }
     ```
    
-    E. flatMapLatest [concurrent]
+    ## E. flatMapLatest [concurrent]
 
     ![flatMapLatest operator](assets/flatMapLatest_1.png)
 
+    -------------------------------------------------------------------------------------------------------
+
     ![flatMapLatest operator](assets/flatMapLatest_2.png)
 
-    ## NOTES:
+    ### NOTES:
     The flatMapLatest operator is used to transform each value emitted by the original flow into a new flow,
     but it only collects values from the most recently emitted inner flow.
     FlatMapLatest will cancel the previous inner flow and start new inner flow for each outer flow emit value.
@@ -490,19 +513,19 @@
     - Prevents outdated data from being processed.
     - Commonly used in scenarios where the latest data is more relevant than previous data.
 
-    ## Use cases include:
+    ### Use cases include:
     - Implementing search suggestions that update as the user types.
     - Handling user input that changes rapidly, such as in autocomplete features.
 
-    ## Official Definition:
+    ### Official Definition:
 
     ```kotlin
     @ExperimentalCoroutinesApi
     fun <T, R> Flow<T>.flatMapLatest(transform: suspend (value: T) -> Flow<R>): Flow<R>
     ```
 
-   Returns a flow that switches to a new flow produced by transform function every time the original flow emits a value. 
-   When the original flow emits a new value, the previous flow produced by transform block is cancelled.
+    Returns a flow that switches to a new flow produced by transform function every time the original flow emits a value. 
+    When the original flow emits a new value, the previous flow produced by transform block is cancelled.
     
     Example:
 
@@ -522,9 +545,10 @@
     }
     ```
 
-4. Emitters Operators
-
-    A. transform
+# 4. Emitters Operators
+  - Here are some commonly used transform operators in Kotlin Flow:
+    
+    ## A. transform
 
     ![transform operator](assets/transform.png)
 
